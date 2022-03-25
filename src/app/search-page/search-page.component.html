@@ -1,0 +1,33 @@
+<div class="container search-box">
+    <div class="row form-group text-center mt-5">
+        <input type="text" class="form-control ms-2" style="width: 95%;" [(ngModel)]="username" placeholder="Type here">
+    </div>
+    <button class="btn btn-primary mt-3" (click)="getUsers()">
+        Search
+    </button>
+    <button style="float: right; margin-right: 4%;" class="btn btn-danger mt-3" (click)="logout()" >
+        Logout
+    </button>
+    <!-- <button style="float: right;  margin-right: 40px;" class="btn btn-danger" >Logout</button> -->
+
+</div>
+
+<div *ngIf="isAvail" class="container result-user">
+    <div class="row">
+        <div class="col-md-6 col-sm-12 mt-4">
+            <img style="width: 70%;" src="{{userInfo.avatar_url}}" 
+            alt="" class="border border-white rounded">
+        </div>
+        <div class="col-md-6 col-sm-12 text-white mt-4">
+            <h2 class="mt-2">Name : {{userInfo.name}} </h2>
+            <h2 class="mt-4">Username : {{userInfo.login}}</h2>
+            <h2 class="mt-4">Followers : {{userInfo.followers}} </h2>
+            <h2 class="mt-4">Created Date : {{createdDate}} </h2>
+            <h2 class="mt-4">Public Repositories : {{userInfo.public_repos}}</h2>
+        </div>
+    </div>
+</div>
+<div *ngIf="isAvail==false" class="container">
+    <h1>Not Found</h1>
+</div>
+
